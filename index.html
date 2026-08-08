@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>LYKAN Miner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Balance header -->
+    <header class="balance-bar">
+      <div class="balance-label">$LYKAN</div>
+      <div class="balance-amount" id="balance">0</div>
+      <div class="mine-rate" id="mineRate">+0 / hr</div>
+    </header>
+
+    <!-- Main mining view -->
+    <main class="mine-view" id="view-mine">
+      <div class="orb-wrap">
+        <svg class="energy-ring" viewBox="0 0 220 220">
+          <circle class="ring-track" cx="110" cy="110" r="100" />
+          <circle class="ring-fill" id="ringFill" cx="110" cy="110" r="100" />
+        </svg>
+        <button class="coin-orb" id="coinOrb" aria-label="Tap to mine">
+          <span class="orb-glyph">L</span>
+        </button>
+      </div>
+      <div class="energy-label"><span id="energyVal">1000</span> / <span id="energyMax">1000</span> energy</div>
+
+      <div class="crescent-divider" aria-hidden="true">
+        <span></span><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 100 20 8 8 0 010-20z"/></svg><span></span>
+      </div>
+
+      <div class="upgrades">
+        <button class="upgrade-card" id="upgradeTap">
+          <div class="upgrade-title">Tap Power</div>
+          <div class="upgrade-sub" id="tapPowerSub">Lv 1 · +1 / tap</div>
+          <div class="upgrade-cost" id="tapCost">500</div>
+        </button>
+        <button class="upgrade-card" id="upgradeMine">
+          <div class="upgrade-title">Auto Rig</div>
+          <div class="upgrade-sub" id="mineRateSub">Lv 0 · +0 / hr</div>
+          <div class="upgrade-cost" id="mineCost">1000</div>
+        </button>
+      </div>
+    </main>
+
+    <!-- Tasks view -->
+    <main class="tasks-view hidden" id="view-tasks">
+      <h2 class="section-title">Tasks</h2>
+      <div id="taskList" class="task-list"></div>
+    </main>
+
+    <!-- Friends view -->
+    <main class="friends-view hidden" id="view-friends">
+      <h2 class="section-title">Invite Friends</h2>
+      <p class="muted">Earn 1,000 $LYKAN for every friend who joins.</p>
+      <button class="primary-btn" id="copyReferral">Copy Referral Link</button>
+      <div class="stat-row">
+        <div><span id="refCount">0</span><small>Referrals</small></div>
+        <div><span id="refEarnings">0</span><small>Earned</small></div>
+      </div>
+    </main>
+
+    <!-- Leaderboard view -->
+    <main class="leaderboard-view hidden" id="view-leaderboard">
+      <h2 class="section-title">Top Miners</h2>
+      <ol id="leaderboardList" class="leaderboard-list"></ol>
+    </main>
+
+    <!-- Bottom nav -->
+    <nav class="dock">
+      <button class="dock-btn active" data-view="mine">Mine</button>
+      <button class="dock-btn" data-view="tasks">Tasks</button>
+      <button class="dock-btn" data-view="friends">Friends</button>
+      <button class="dock-btn" data-view="leaderboard">Ranks</button>
+    </nav>
+
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
